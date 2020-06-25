@@ -7,7 +7,7 @@
 |email|string|null: false, unipue: true|
 |password|string|null: false|
 ### Association
-- has_many :groups, through :groups_users
+- has_many :groups, through: :groups_users
 - has_many :posts
 - has_many :groups_users
 
@@ -29,7 +29,7 @@
 |group_id|integer|null: false foreign_key:true|
 ### Association
 - belongs_to: user
-- has_many: groups
+- belongs_to: group
 
 ## groups_usersテーブル
 |columm|Type|Option|
