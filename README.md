@@ -3,37 +3,37 @@
 ## usersテーブル
 |Columm|Type|Option|
 |------|----|------|
-|name|string|null: false, unique true|
+|name|string|null: false, unique: true|
 |email|string|null: false, unipue: true|
 |password|string|null: false|
 ### Association
-- has_many :groups
+- has_many :groups, through :groups_users
 - has_many :posts
+- has_many :groups_users
 
 ## groupsテーブル
 |Columm|Type|Option|
 |------|----|------|
-|groupname|string|null: false|
-|member|string|null: false|
-|user_id|integer|null: false|
+|name|string|null: false|
 ### Association
 - has_many :users
 
 ## postsテーブル
 |Columm|Type|Option|
 |------|----|------|
-|text|text|null: false|
-|image|string|null: false|
-|user_id|integer|null: false|
-|group_id|integer|null: false|
+|text|text||
+|image|string||
+|user_id|integer|null: false, foreign_key:true|
+|group_id|integer|null: false foreign_key:true|
 ### Association
-- belongs_to: users
+- belongs_to: user
+- has_many: groups
 
-## users_postsテーブル
-|Collum|Type|Option|
+## groups_usersテーブル
+|columm|Type|Option|
 |------|----|------|
-|user_id|integer|null: false|
-|post_id|integer|null: false|
+|group_id|integer|null: false, foreign_key:true|
+|user_id|integer|null: false, foreign_key:true|
 ### Association
-- belongs_to :user
-- belongs_to :posts
+- belongs_to: user 
+- belongs_to: group
