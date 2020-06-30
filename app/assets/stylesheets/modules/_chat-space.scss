@@ -1,0 +1,13 @@
+.wrapper{
+
+  display: flex;
+
+  @mixin -height-width($height,$width) {
+    height: $height;
+    width: $width;
+  }
+
+  @import "sidebar.scss";
+  @import "chatmain.scss";
+
+}
