@@ -1,0 +1,41 @@
+.ChatMain
+  .ChatMain__RightHeader
+    .ChatMain__RightHeader__Group
+
+      .ChatMain__RightHeader__Group__GroupName
+        グループ名
+      .ChatMain__RightHeader__Group__EditButton
+        = link_to "Edit", "#"
+      
+    .ChatMain__RightHeader__MemberList
+      <ul>Member:</ul>
+
+  .ChatMain__MessageField
+    .ChatMain__MessageField__MessageBox
+      
+      .ChatMain__MessageField__MessageBox__MessageInfo
+        
+        .ChatMain__MessageField__MessageBox__MessageInfo__Name
+          masa
+        .ChatMain__MessageField__MessageBox__MessageInfo__Date
+          2020/06/28
+      .ChatMain__MessageField__MessageBox__Message
+        おはよう！
+
+      .ChatMain__MessageField__MessageBox__MessageInfo
+
+        .ChatMain__MessageField__MessageBox__MessageInfo__Name
+          masa
+        .ChatMain__MessageField__MessageBox__MessageInfo__Date
+          2020/06/30
+      .ChatMain__MessageField__MessageBox__Message
+        こんにちは
+
+  .Chat-Main__Footer
+    .Chat-Main__Footer__Form
+      %input{type: "text", class: "Chat-Main__Footer__Form__text-form", placeholder: "type a message"}
+      %label{class: "Chat-Main__Footer__Form__Image"}
+        =icon('fas', 'image')
+        %input{type: "file", class: "Chat-Main__Footer__Form__Image__file"}
+    %input{type: "submit", class: "Chat-Main__Footer__Form__submit-btn", value: "Send"}
+    

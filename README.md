@@ -1,7 +1,7 @@
 # ChatSpace DB設計
 
 ## usersテーブル
-|Columm|Type|Option|
+|Columm|Type|Option| 
 |------|----|------|
 |name|string|null: false, unique: true|
 |email|string|null: false, unipue: true|

@@ -1,0 +1,105 @@
+.ChatMain{
+
+  &__RightHeader {
+    @include -height-width(100px,calc(100vw - 300px));
+    background-color: #ffffff;
+    border-bottom:1px solid #eeeeee;
+    padding: 35px 40px 35px 40px;
+    
+    &__Group{
+
+      display: flex;
+      justify-content: space-between;
+
+      &__GroupName{
+        font-size:20px;
+        color: #333333;
+        margin-bottom: 15px;
+      }
+
+      &__EditButton{
+        @include -height-width(40px, 72px);
+        font-size: 16px;
+        color: #38aef0;
+        padding: 8px 20px;
+        border: 1px solid #38aef0;
+      }
+    }
+
+    &__MemberList{
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+
+  &__MessageField {
+
+    @include -height-width(calc(100vh - 190px), calc(100vw - 300px));
+
+    &__MessageBox{
+      &__MessageInfo{
+
+        padding: 35px 0px 0px 40px;
+        display: flex;
+        
+        &__Name{
+          font-size: 16px;
+          color: #333333;
+        }
+
+        &__Date{
+          @include -height-width(0px, 100px);
+          font-size: 12px;
+          color: #999999;
+          padding-left: 10px;
+        }
+      }
+
+      &__Message{
+        font-size: 14px;
+        color: #434A54;
+        padding: 12px 0px 0px 40px;
+      }
+    }
+  }
+
+  .Chat-Main__Footer{
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d2d2d2;
+
+    &__Form{
+      width: 100%;
+      display: flex;
+      position: relative;
+      background-color: #d2d2d2;
+      margin-left: 40px;
+      
+      &__text-form{
+        @include -height-width(50px,100%);
+        padding-left:10px;
+      }
+
+      &__Image{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+
+        &__file{
+         display: none;
+        }
+      }
+
+      &__submit-btn{
+        @include -height-width(50px, 100px);
+        margin: 0px 40px 0px 15px;
+        background-color: #38aef0;
+        font-size: 16px;
+        color:#fff;
+      }
+    }
+  }
+}
