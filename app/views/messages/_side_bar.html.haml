@@ -1,11 +1,13 @@
 .Side-bar
   .Side-bar__LeftHeader
     .Side-bar__LeftHeader__List
-      %p masa
+      = current_user.name
       .Side-bar__LeftHeader__List__Username
       .Side-bar__LeftHeader__List__IconList
-        = icon('far', 'edit', class: 'icon')
-        = icon('fas', 'cog', class: 'icon')
+        = link_to "#" do
+          = icon('far', 'edit', class: 'icon')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'icon')
   
   .Side-bar__GroupList
     .Side-bar__GroupList__Group
