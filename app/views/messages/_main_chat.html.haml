@@ -1,41 +1,29 @@
+
 .ChatMain
   .ChatMain__RightHeader
     .ChatMain__RightHeader__Group
 
       .ChatMain__RightHeader__Group__GroupName
-        グループ名
+        ここにグループ名を表示
+        = @group.name
+
       .ChatMain__RightHeader__Group__EditButton
-        = link_to "Edit", "#"
+        = link_to "Edit", edit_group_path(current_user)
       
     .ChatMain__RightHeader__MemberList
-      <ul>Member:</ul>
+      Member:
+      - @group.users.each do |user|
+        = user.name
+
 
   .ChatMain__MessageField
-    .ChatMain__MessageField__MessageBox
-      
-      .ChatMain__MessageField__MessageBox__MessageInfo
-        
-        .ChatMain__MessageField__MessageBox__MessageInfo__Name
-          masa
-        .ChatMain__MessageField__MessageBox__MessageInfo__Date
-          2020/06/28
-      .ChatMain__MessageField__MessageBox__Message
-        おはよう！
-
-      .ChatMain__MessageField__MessageBox__MessageInfo
-
-        .ChatMain__MessageField__MessageBox__MessageInfo__Name
-          masa
-        .ChatMain__MessageField__MessageBox__MessageInfo__Date
-          2020/06/30
-      .ChatMain__MessageField__MessageBox__Message
-        こんにちは
+    = render @messages
 
   .Chat-Main__Footer
-    .Chat-Main__Footer__Form
-      %input{type: "text", class: "Chat-Main__Footer__Form__text-form", placeholder: "type a message"}
-      %label{class: "Chat-Main__Footer__Form__Image"}
-        =icon('fas', 'image')
-        %input{type: "file", class: "Chat-Main__Footer__Form__Image__file"}
-    %input{type: "submit", class: "Chat-Main__Footer__Form__submit-btn", value: "Send"}
-    
+    = form_with model: [@group, @message], html: {class: "Chat-Main__Footer__Form"}, local: true do |f|
+      .Chat-Main__Footer__Form
+        = f.text_field :content, class: 'Chat-Main__Footer__Form__text-form', placeholder: 'type a message'
+        = f.label :image, class: 'Chat-Main__Footer__Form__Image' do
+          =icon('fas', 'image')
+          = f.file_field :image, class: 'Chat-Main__Footer__Form__Image__file'
+      = f.submit 'Send', class: 'Chat-Main__Footer__Form__submit-btn'
